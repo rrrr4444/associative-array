@@ -49,14 +49,6 @@ public class AssociativeArray<K, V> {
     this.size = 0;
   } // structures.AssociativeArray()
 
-  /**
-   * Create an associative array with given pairs.
-   */
-  public AssociativeArray(KVPair<K, V>[] pairs, int size) {
-    this.pairs = pairs;
-    this.size = size;
-  } // structures.AssociativeArray(structures.KVPair<K, V> pairs[])
-
   // +------------------+--------------------------------------------
   // | Standard Methods |
   // +------------------+
@@ -65,13 +57,24 @@ public class AssociativeArray<K, V> {
    * Create a copy of this structures.AssociativeArray.
    */
   public AssociativeArray<K, V> clone() {
-    return new AssociativeArray<>(this.pairs, this.size);
+    AssociativeArray<K, V> arr = new AssociativeArray<>();
+    for (int i = 0; i < this.size; i++) {
+      try {
+        arr.set(this.pairs[i].key, this.pairs[i].value);
+      } catch (Exception e) {
+        throw new RuntimeException(e);
+      } // try
+    } // for
+    return arr;
   } // clone()
 
   /**
    * Convert the array to a string.
    */
   public String toString() {
+    if (this.size == 0) {
+      return "{}";
+    } // if
     String arr = "{";
     for (int i = 0; i < this.size; i++) {
       arr += " " + this.pairs[i].key + ": " + this.pairs[i].value;
@@ -79,7 +82,7 @@ public class AssociativeArray<K, V> {
         arr += ",";
       } // if
     } // for
-    return arr + "}";
+    return arr + " }";
   } // toString()
 
   // +----------------+----------------------------------------------
