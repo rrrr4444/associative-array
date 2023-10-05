@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4df2223c-193d-46fd-b47a-d87916705c81" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/AssociativeArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AssociativeArrayExperiments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AssociativeArrayTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/KVPair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/KeyNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReportingAssociativeArray.java" afterDir="false" />
+    <list default="true" id="4df2223c-193d-46fd-b47a-d87916705c81" name="Changes" comment="readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AssociativeArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AssociativeArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KVPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KVPair.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +16,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/AssociativeArrayExperiments.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -54,7 +59,9 @@
       <updated>1696281794794</updated>
       <workItem from="1696281795823" duration="4000" />
       <workItem from="1696281854860" duration="463000" />
-      <workItem from="1696385945449" duration="922000" />
+      <workItem from="1696385945449" duration="1103000" />
+      <workItem from="1696462947845" duration="439000" />
+      <workItem from="1696463430870" duration="1540000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -64,7 +71,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696282076329</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="starter code">
+      <option name="closed" value="true" />
+      <created>1696389712877</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696389712877</updated>
+    </task>
+    <task id="LOCAL-00003" summary="readme">
+      <option name="closed" value="true" />
+      <created>1696389809610</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696389809610</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -72,6 +95,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="starter code" />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
 </project>

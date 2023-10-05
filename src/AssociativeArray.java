@@ -2,6 +2,8 @@ package structures;
 
 import static java.lang.reflect.Array.newInstance;
 
+import structures.KeyNotFoundException;
+
 /**
  * A basic implementation of Associative Arrays with keys of type K
  * and values of type V. Associative Arrays store key/value pairs
@@ -41,13 +43,21 @@ public class AssociativeArray<K, V> {
   /**
    * Create a new, empty associative array.
    */
-  @SuppressWarnings({ "unchecked" })
+  @SuppressWarnings({"unchecked"})
   public AssociativeArray() {
     // Creating new arrays is sometimes a PITN.
     this.pairs = (KVPair<K, V>[]) newInstance((new KVPair<K, V>()).getClass(),
-        DEFAULT_CAPACITY);
+            DEFAULT_CAPACITY);
     this.size = 0;
   } // AssociativeArray()
+
+  /**
+   * Create an associative array with given pairs.
+   */
+  public AssociativeArray(KVPair<K, V> pairs) {
+    this.pairs = pairs;
+    this.size = pairs.length;
+  } // AssociativeArray(KVPair<K, V> pairs[])
 
   // +------------------+--------------------------------------------
   // | Standard Methods |
@@ -57,14 +67,21 @@ public class AssociativeArray<K, V> {
    * Create a copy of this AssociativeArray.
    */
   public AssociativeArray<K, V> clone() {
-    return null; // STUB
+    return new AssociativeArray<K, V>(this.pairs);
   } // clone()
 
   /**
    * Convert the array to a string.
    */
   public String toString() {
-    return "{}"; // STUB
+    String arr = "{";
+    for (int i = 0; i < this.size; i++) {
+      arr += " " + this.pairs[i].key + ": " + this.pairs[i].value;
+      if (i != (this.size - 1)) {
+        arr += ","
+      } // if
+    } // for
+    return arr + "}";
   } // toString()
 
   // +----------------+----------------------------------------------
@@ -82,19 +99,27 @@ public class AssociativeArray<K, V> {
   /**
    * Get the value associated with key.
    *
-   * @throws KeyNotFoundException
-   *                              when the key does not appear in the associative
+   * @throws KeyNotFoundException when the key does not appear in the associative
    *                              array.
    */
   public V get(K key) throws KeyNotFoundException {
-    return null; // STUB
+    for (int i = 0; i < this.size; i++) {
+      if (this.pairs[i].key == key) {
+        return this.pairs[i].value;
+      } // if
+      throw new KeyNotFoundException();
+    } // for
   } // get(K)
 
   /**
    * Determine if key appears in the associative array.
    */
   public boolean hasKey(K key) {
-    return false; // STUB
+    for (int i = 0; i < this.size; i++) {
+      if (this.pairs[i].key == key) {
+        return true;
+      } // if
+      return false;
   } // hasKey(K)
 
   /**
