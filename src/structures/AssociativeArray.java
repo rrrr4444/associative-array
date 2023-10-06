@@ -7,7 +7,7 @@ import java.lang.reflect.Array;
  * and values of type V. Associative Arrays store key/value pairs
  * and permit you to look up values by key.
  *
- * @author Your Name Here
+ * @author Reed Colloton
  * @author Samuel A. Rebelsky
  */
 public class AssociativeArray<K, V> {
