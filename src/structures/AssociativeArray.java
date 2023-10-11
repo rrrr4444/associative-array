@@ -143,6 +143,8 @@ public class AssociativeArray<K, V> {
   public void remove(K key) throws Exception {
     if (key == null) {
       throw new Exception("Key cannot be null.");
+    } else if (!this.hasKey(key)) {
+      return;
     } // if
     int i = this.find(key);
     if (i == (this.size - 1)) {
