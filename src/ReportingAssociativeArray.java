@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  *
  * @author Samuel A. Rebelsky
  */
-public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
+public class ReportingAssociativeArray<K, V> extends AssociativeArray<K, V> {
 
   // +--------+------------------------------------------------------
   // | Fields |
@@ -30,7 +30,7 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
   // +--------------+
 
   /**
-   * Create a new ReportingAssociativeArray named `name` that 
+   * Create a new ReportingAssociativeArray named `name` that
    * prints reports of all actions using `pen`.
    */
   public ReportingAssociativeArray(String name, PrintWriter pen) {
@@ -55,8 +55,7 @@ public class ReportingAssociativeArray<K,V> extends AssociativeArray<K,V> {
   /**
    * Get the value associated with key.
    *
-   * @throws KeyNotFoundException
-   *   when the key does not appear in the associative array.
+   * @throws KeyNotFoundException when the key does not appear in the associative array.
    */
   public V get(K key) throws KeyNotFoundException {
     pen.print(name + ".get(" + key + ") = ");

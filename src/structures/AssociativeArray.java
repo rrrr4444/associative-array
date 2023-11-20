@@ -1,5 +1,6 @@
 package structures;
 
+
 import java.lang.reflect.Array;
 
 /**
@@ -133,10 +134,11 @@ public class AssociativeArray<K, V> {
    * in the associative array, does nothing.
    */
   public void remove(K key) {
-    if (key == null) {
+    int i = this.find(key);
+    if (i < 0) {
+      // key null or not found
       return;
     } // if
-    int i = this.find(key);
     if (i == (this.size - 1)) {
       // If pair is last, set equal to null
       this.pairs[i] = new KVPair<>(null, null);
@@ -145,7 +147,7 @@ public class AssociativeArray<K, V> {
       this.pairs[i] = this.pairs[this.size - 1];
       this.pairs[this.size - 1] = new KVPair<>(null, null);
     } // if
-    this.size --;
+    this.size--;
   } // remove(K)
 
   /**
