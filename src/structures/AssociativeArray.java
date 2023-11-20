@@ -44,7 +44,7 @@ public class AssociativeArray<K, V> {
   @SuppressWarnings({"unchecked"})
   public AssociativeArray() {
     // Creating new arrays is sometimes a PITN.
-    this.pairs = (KVPair<K, V>[]) Array.newInstance((new KVPair<K, V>()).getClass(),
+    this.pairs = (KVPair<K, V>[]) Array.newInstance(KVPair.class,
             DEFAULT_CAPACITY);
     this.size = 0;
   } // structures.AssociativeArray()
@@ -75,11 +75,11 @@ public class AssociativeArray<K, V> {
     if (this.size == 0) {
       return "{}";
     } // if
-    String arr = "{";
+    StringBuilder arr = new StringBuilder("{");
     for (int i = 0; i < this.size; i++) {
-      arr += " " + this.pairs[i].key + ": " + this.pairs[i].value;
+      arr.append(" ").append(this.pairs[i].key).append(": ").append(this.pairs[i].value);
       if (i != (this.size - 1)) {
-        arr += ",";
+        arr.append(",");
       } // if
     } // for
     return arr + " }";
@@ -93,9 +93,9 @@ public class AssociativeArray<K, V> {
    * Set the value associated with key to value. Future calls to
    * get(key) will return value.
    */
-  public void set(K key, V value) throws Exception {
+  public void set(K key, V value) {
     if (key == null) {
-      throw new Exception("Key cannot be null.");
+      return;
     } // if
     if (this.size == this.pairs.length) {
       this.expand();
@@ -113,9 +113,9 @@ public class AssociativeArray<K, V> {
    * @throws KeyNotFoundException when the key does not appear in the associative
    *                              array.
    */
-  public V get(K key) throws Exception {
-    if (key == null) {
-      throw new Exception("Key cannot be null.");
+  public V get(K key) throws KeyNotFoundException {
+    if (!this.hasKey(key)) {
+      throw new KeyNotFoundException("Key not found.");
     } // if
     return this.pairs[this.find(key)].value;
   } // get(K)
@@ -123,16 +123,8 @@ public class AssociativeArray<K, V> {
   /**
    * Determine if key appears in the associative array.
    */
-  public boolean hasKey(K key) throws Exception {
-    if (key == null) {
-      throw new Exception("Key cannot be null.");
-    } // if
-    try {
-      this.find(key);
-      return true;
-    } catch (KeyNotFoundException e) {
-      return false;
-    } // try
+  public boolean hasKey(K key) {
+    return this.find(key) >= 0;
   } // hasKey(K)
 
   /**
@@ -140,9 +132,9 @@ public class AssociativeArray<K, V> {
    * to get(key) will throw an exception. If the key does not appear
    * in the associative array, does nothing.
    */
-  public void remove(K key) throws Exception {
+  public void remove(K key) {
     if (key == null) {
-      throw new Exception("Key cannot be null.");
+      return;
     } // if
     int i = this.find(key);
     if (i == (this.size - 1)) {
@@ -176,18 +168,17 @@ public class AssociativeArray<K, V> {
 
   /**
    * Find the index of the first entry in `pairs` that contains key.
-   * If no such entry is found, throws an exception.
    */
-  public int find(K key) throws Exception {
+  private int find(K key) {
     if (key == null) {
-      throw new Exception("Key cannot be null.");
+      return -1;
     } // if
     for (int i = 0; i < this.size; i++) {
       if (key.equals(this.pairs[i].key)) {
         return i;
       } // if
     } // for
-    throw new KeyNotFoundException("Key not found.");
+    return -2;
   } // find(K)
 
 } // class structures.AssociativeArray

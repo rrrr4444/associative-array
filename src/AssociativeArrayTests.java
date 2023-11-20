@@ -1,9 +1,9 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import structures.AssociativeArray;
+import structures.KeyNotFoundException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests of the AssociativeArray class.
@@ -60,4 +60,21 @@ public class AssociativeArrayTests {
     arr.remove("43");
     assertEquals(0, arr.size());
   } // reedCollotonTest02()
+
+  /**
+   * Test that it handles null keys properly.
+   */
+  @Test
+  public void nullTests() {
+    AssociativeArray<String, Boolean> arr = new AssociativeArray<>();
+    arr.set("43", false);
+    arr.set("27", true);
+    assertThrowsExactly(KeyNotFoundException.class, () -> arr.get(null));
+    arr.remove(null);
+    arr.set(null, null);
+    assertThrowsExactly(KeyNotFoundException.class, () -> arr.get(null));
+    assertFalse(arr.hasKey(null));
+    assertEquals(2, arr.size());
+  } // reedCollotonTest02()
+
 } // class AssociativeArrayTests
