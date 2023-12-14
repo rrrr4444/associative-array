@@ -170,6 +170,7 @@ public class AssociativeArray<K, V> {
 
   /**
    * Find the index of the first entry in `pairs` that contains key.
+   * Returns -1 if key is null and -2 if key is not found.
    */
   private int find(K key) {
     if (key == null) {
